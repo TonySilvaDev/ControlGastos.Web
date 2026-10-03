@@ -1,0 +1,181 @@
+﻿<aside id="sidebar" class="sidebar">
+
+    <div class="sidebar-header">
+
+        <a asp-controller="Dashboard"
+           asp-action="Index"
+           class="brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-wallet2"></i>
+            </div>
+
+            <span class="brand-text">
+                ControlGastos
+            </span>
+
+        </a>
+
+        <button type="button"
+                id="sidebarClose"
+                class="sidebar-close d-lg-none">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="sidebar-user">
+
+        <div class="user-avatar">
+            <i class="bi bi-person"></i>
+        </div>
+
+        <div class="user-info">
+
+            <span class="user-name">
+                Usuario
+            </span>
+
+            <span class="user-role">
+                Usuario
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <div class="nav-section-title">
+            PRINCIPAL
+        </div>
+
+        <a asp-controller="Dashboard"
+           asp-action="Index"
+           class="nav-item-link active">
+
+            <i class="bi bi-grid-1x2-fill"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a asp-controller="Gastos"
+           asp-action="Index"
+           class="nav-item-link">
+
+            <i class="bi bi-wallet2"></i>
+
+            <span>
+                Gastos
+            </span>
+
+        </a>
+
+
+        <a asp-controller="Categorias"
+           asp-action="Index"
+           class="nav-item-link">
+
+            <i class="bi bi-tags"></i>
+
+            <span>
+                Categorías
+            </span>
+
+        </a>
+
+
+        <a asp-controller="Reportes"
+           asp-action="Index"
+           class="nav-item-link">
+
+            <i class="bi bi-bar-chart-line"></i>
+
+            <span>
+                Reportes
+            </span>
+
+        </a>
+
+
+        <div class="nav-section-title mt-4">
+            CUENTA
+        </div>
+
+
+        <a asp-controller="Perfil"
+           asp-action="Index"
+           class="nav-item-link">
+
+            <i class="bi bi-person-circle"></i>
+
+            <span>
+                Mi perfil
+            </span>
+
+        </a>
+
+
+        <a asp-controller="Configuracion"
+           asp-action="Index"
+           class="nav-item-link">
+
+            <i class="bi bi-gear"></i>
+
+            <span>
+                Configuración
+            </span>
+
+        </a>
+
+
+        <div class="nav-section-title mt-4">
+            ADMINISTRACIÓN
+        </div>
+
+
+        <a asp-controller="Admin"
+           asp-action="Index"
+           class="nav-item-link">
+
+            <i class="bi bi-shield-check"></i>
+
+            <span>
+                Administración
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+
+        <button type="button"
+                class="logout-button">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>
+                Cerrar sesión
+            </span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- Overlay para móvil -->
+<div id="sidebarOverlay"
+     class="sidebar-overlay">
+</div>

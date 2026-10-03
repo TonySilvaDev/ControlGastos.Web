@@ -1,7 +1,21 @@
+using ControlGastos.Web.Services;
+using ControlGastos.Web.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient<IDashboardApiService, DashboardApiService>(
+    client =>
+    {
+        var baseUrl = builder.Configuration[
+            "ApiSettings:BaseUrl"];
+
+        client.BaseAddress = new Uri(baseUrl!);
+
+        client.Timeout = TimeSpan.FromSeconds(30);
+    });
 
 var app = builder.Build();
 
@@ -22,7 +36,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

@@ -1,0 +1,366 @@
+﻿@model ControlGastos.Web.Models.Dashboard.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-page">
+
+    <div class="page-header">
+
+        <div>
+            <h1 class="page-title">
+                Hola, Usuario 👋
+            </h1>
+
+            <p class="page-subtitle">
+                Aquí tienes el resumen de tus finanzas.
+            </p>
+        </div>
+
+        <div>
+            <button class="btn btn-primary">
+                <i class="bi bi-plus-lg me-2"></i>
+                Nueva transacción
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- Tarjetas -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-12 col-md-6 col-xl-4">
+
+            <div class="dashboard-card summary-card">
+
+                <div class="summary-card-header">
+
+                    <div>
+                        <span class="summary-label">
+                            Saldo total
+                        </span>
+
+                        <h2 class="summary-value">
+                            @Model.Saldo.ToString("C")
+                    <div class="summary-icon primary">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+
+                </div>
+
+                <div class="summary-footer">
+                    <span class="text-success">
+                        <i class="bi bi-arrow-up"></i>
+                        8.2%
+                    </span>
+
+                    <span>
+                        respecto al mes anterior
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-12 col-md-6 col-xl-4">
+
+            <div class="dashboard-card summary-card">
+
+                <div class="summary-card-header">
+
+                    <div>
+                        <span class="summary-label">
+                            Ingresos
+                        </span>
+
+                        <h2 class="summary-value">
+                            @Model.TotalIngresos.ToString("C")
+                        </h2>
+                    </div>
+
+                    <div class="summary-icon success">
+                        <i class="bi bi-arrow-down-left"></i>
+                    </div>
+
+                </div>
+
+                <div class="summary-footer">
+                    <span class="text-success">
+                        <i class="bi bi-arrow-up"></i>
+                        5.4%
+                    </span>
+
+                    <span>
+                        este mes
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-12 col-md-6 col-xl-4">
+
+            <div class="dashboard-card summary-card">
+
+                <div class="summary-card-header">
+
+                    <div>
+                        <span class="summary-label">
+                            Gastos
+                        </span>
+
+                        <h2 class="summary-value">
+                            @Model.TotalGastos.ToString("C")
+                        </h2>
+                    </div>
+
+                    <div class="summary-icon danger">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+
+                </div>
+
+                <div class="summary-footer">
+                    <span class="text-danger">
+                        <i class="bi bi-arrow-up"></i>
+                        3.1%
+                    </span>
+
+                    <span>
+                        este mes
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Gráficos -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-12 col-xl-8">
+
+            <div class="dashboard-card chart-card">
+
+                <div class="card-header-custom">
+
+                    <div>
+                        <h3>
+                            Tendencia mensual
+                        </h3>
+
+                        <p>
+                            Ingresos y gastos durante el año
+                        </p>
+                    </div>
+
+                    <button class="btn btn-light btn-sm">
+                        Este año
+                        <i class="bi bi-chevron-down ms-1"></i>
+                    </button>
+
+                </div>
+
+                <div class="chart-placeholder">
+
+                    <i class="bi bi-bar-chart-line"></i>
+
+                    <div class="chart-container">
+                        <canvas id="monthlyTrendChart"></canvas>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-12 col-xl-4">
+
+            <div class="dashboard-card chart-card">
+
+                <div class="card-header-custom">
+
+                    <div>
+                        <h3>
+                            Gastos por categoría
+                        </h3>
+
+                        <p>
+                            Distribución de gastos
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="chart-placeholder">
+
+                    <i class="bi bi-pie-chart"></i>
+
+                    <div class="chart-container">
+                        <canvas id="expensesCategoryChart"></canvas>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Transacciones -->
+    <div class="dashboard-card">
+
+        <div class="card-header-custom">
+
+            <div>
+                <h3>
+                    Transacciones recientes
+                </h3>
+
+                <p>
+                    Últimos movimientos registrados
+                </p>
+            </div>
+
+            <a href="#"
+               class="btn btn-light btn-sm">
+
+                Ver todas
+
+                <i class="bi bi-arrow-right ms-1"></i>
+
+            </a>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table transaction-table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Fecha
+                        </th>
+
+                        <th>
+                            Categoría
+                        </th>
+
+                        <th>
+                            Tipo
+                        </th>
+
+                        <th>
+                            Descripción
+                        </th>
+
+                        <th class="text-end">
+                            Monto
+                        </th>
+
+                        <th class="text-end">
+                            Acciones
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @foreach (var transaccion in Model.TransaccionesRecientes)
+                    {
+                        var esIngreso =
+                            transaccion.TipoOperacion.Equals(
+                                "Ingreso",
+                                StringComparison.OrdinalIgnoreCase);
+
+                        <tr>
+
+                            <td>
+                                @transaccion.Fecha.ToString("dd MMM yyyy")
+                            </td>
+
+                            <td>
+                                <span class="category-badge">
+                                    @transaccion.Categoria
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <span class="type-badge @(esIngreso ? "income" : "expense")">
+
+                                    @transaccion.TipoOperacion
+
+                                </span>
+
+                            </td>
+
+                            <td>
+                                @transaccion.Descripcion
+                            </td>
+
+                            <td class="text-end amount @(esIngreso ? "income" : "expense")">
+
+                                @(esIngreso ? "+" : "-")
+                                @transaccion.Monto.ToString("C")
+
+                            </td>
+
+                            <td class="text-end">
+
+                                <button class="btn-action">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+
+                                <button class="btn-action danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Styles {
+
+    <link rel="stylesheet"
+          href="~/css/dashboard.css"
+          asp-append-version="true" />
+
+}
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="~/js/dashboard.js"
+            asp-append-version="true"></script>
+}

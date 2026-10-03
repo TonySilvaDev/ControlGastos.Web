@@ -2,3 +2,17 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+document.addEventListener("DOMContentLoaded", function () {
+
+    /*
+     * Aquí colocaremos posteriormente:
+     *
+     * - Toasts
+     * - Alertas
+     * - Confirmaciones
+     * - Helpers AJAX
+     * - Formateo de moneda
+     * - Funciones compartidas
+     */
+
+});

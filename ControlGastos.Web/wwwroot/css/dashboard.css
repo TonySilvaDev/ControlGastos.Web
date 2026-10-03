@@ -1,0 +1,300 @@
+﻿.dashboard-page {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.page-subtitle {
+    margin: 6px 0 0;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   CARDS
+   ========================================== */
+
+.dashboard-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* ==========================================
+   SUMMARY
+   ========================================== */
+
+.summary-card {
+    padding: 22px;
+}
+
+.summary-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.summary-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.summary-value {
+    margin: 0;
+    color: var(--dark);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.summary-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+    .summary-icon.primary {
+        background: var(--primary-light);
+        color: var(--primary);
+    }
+
+    .summary-icon.success {
+        background: var(--success-light);
+        color: var(--success);
+    }
+
+    .summary-icon.danger {
+        background: var(--danger-light);
+        color: var(--danger);
+    }
+
+.summary-footer {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 18px;
+    font-size: 11px;
+    color: var(--text-light);
+}
+
+    .summary-footer span:first-child {
+        font-weight: 600;
+    }
+
+
+/* ==========================================
+   CHARTS
+   ========================================== */
+
+.chart-card {
+    padding: 22px;
+}
+
+.card-header-custom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .card-header-custom h3 {
+        margin: 0;
+        color: var(--dark);
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .card-header-custom p {
+        margin: 5px 0 0;
+        color: var(--text-light);
+        font-size: 12px;
+    }
+
+.chart-placeholder {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: linear-gradient( 135deg, #f8fafc, #eef2ff );
+    color: var(--primary);
+}
+
+    .chart-placeholder i {
+        font-size: 40px;
+    }
+
+    .chart-placeholder span {
+        color: var(--text-light);
+        font-size: 13px;
+    }
+
+
+/* ==========================================
+   TABLE
+   ========================================== */
+
+.transaction-table {
+    margin: 0;
+}
+
+    .transaction-table thead th {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-light);
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+    }
+
+    .transaction-table tbody td {
+        padding: 16px 20px;
+        border-bottom: 1px solid #f1f5f9;
+        color: var(--text);
+        font-size: 13px;
+    }
+
+    .transaction-table tbody tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .transaction-table tbody tr:hover {
+        background: #fafbff;
+    }
+
+
+/* ==========================================
+   BADGES
+   ========================================== */
+
+.category-badge {
+    display: inline-flex;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.type-badge {
+    display: inline-flex;
+    padding: 5px 9px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+    .type-badge.expense {
+        background: var(--danger-light);
+        color: var(--danger);
+    }
+
+    .type-badge.income {
+        background: var(--success-light);
+        color: var(--success);
+    }
+
+
+/* ==========================================
+   AMOUNTS
+   ========================================== */
+
+.amount {
+    font-weight: 600;
+}
+
+    .amount.expense {
+        color: var(--danger);
+    }
+
+    .amount.income {
+        color: var(--success);
+    }
+
+
+/* ==========================================
+   ACTION BUTTONS
+   ========================================== */
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--background);
+    color: var(--text-light);
+    margin-left: 4px;
+    transition: all 0.2s ease;
+}
+
+    .btn-action:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+    }
+
+    .btn-action.danger:hover {
+        background: var(--danger-light);
+        color: var(--danger);
+    }
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 767.98px) {
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .page-title {
+        font-size: 21px;
+    }
+
+    .page-header .btn {
+        width: 100%;
+    }
+
+    .summary-value {
+        font-size: 22px;
+    }
+
+    .chart-placeholder {
+        min-height: 250px;
+    }
+}
