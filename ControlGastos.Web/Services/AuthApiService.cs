@@ -7,9 +7,9 @@ namespace ControlGastos.Web.Services
     {
         private readonly HttpClient _httpClient;
 
-        public AuthApiService(HttpClient httpClient)
+        public AuthApiService(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClientFactory.CreateClient("ControlGastosApi");
         }
 
         public async Task<AuthResponse?> LoginAsync(
